@@ -1,0 +1,48 @@
+steps:
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/sb-hello-world-234105/$REPO_NAME:$COMMIT_SHA', '.']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'delete'
+  - 'deployment'
+  - 'sb-hello-world'
+  - '--ignore-not-found'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'run'
+  - 'sb-hello-world'
+  - '--image=gcr.io/sb-hello-world-234105/$REPO_NAME:$COMMIT_SHA'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=sb-hello-world'
+  - 'resources requests cpu=100m memory=150Mi'
+  - 'resources limits cpu=200m memory=250Mi'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'scale'
+  - 'deployment'
+  - 'sb-hello-world'
+  - '--replicas=3'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'delete'
+  - 'service'
+  - 'sb-hello-world-service'
+  - '--ignore-not-found'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'expose'
+  - 'deployment'
+  - 'sb-hello-world'
+  - '--type=LoadBalancer'
+  - '--port=80'
+  - '--target-port=8080'
+  - '--name=sb-hello-world-service'
+  - '--load-balancer-ip=35.193.82.77'
+images: ['gcr.io/sb-hello-world-234105/$REPO_NAME:$COMMIT_SHA']
+

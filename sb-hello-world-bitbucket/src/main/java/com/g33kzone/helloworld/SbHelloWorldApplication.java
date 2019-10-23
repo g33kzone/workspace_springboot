@@ -1,0 +1,13 @@
+package com.g33kzone.helloworld;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SbHelloWorldApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SbHelloWorldApplication.class, args);
+	}
+
+}

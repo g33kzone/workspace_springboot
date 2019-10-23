@@ -1,0 +1,4 @@
+com/g33kzone/sbjunit/service/HelloServiceTest.class
+com/g33kzone/sbjunit/service/HelloServiceMockTest.class
+com/g33kzone/sbjunit/controller/MainControllerTest.class
+com/g33kzone/sbjunit/DemoApplicationTests.class

@@ -1,0 +1,8 @@
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/SbKinesisProducerApplication.java
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/utility/ReadCSV.java
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/controller/DataUploadController.java
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/DataProducer.java
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/repository/ClaimsRepository.java
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/service/ClaimsService.java
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/model/Claims.java
+/Users/manish_warang/workspace_springboot/sb-kinesis-producer/src/main/java/com/g33kzone/kinesis/model/User.java

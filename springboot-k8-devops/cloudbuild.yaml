@@ -1,0 +1,23 @@
+steps:
+- name: 'gcr.io/cloud-builders/mvn'
+  args: ['install']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/k8-devops/$REPO_NAME:$COMMIT_SHA', '.']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'delete'
+  - 'deployment'
+  - 'springboot-k8-devops'
+  - '--ignore-not-found'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=k8-cluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'run'
+  - 'springboot-k8-devops'
+  - '--image=gcr.io/k8-devops/$REPO_NAME:$COMMIT_SHA'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=k8-cluster'
+images: ['gcr.io/k8-devops/$REPO_NAME:$COMMIT_SHA']

@@ -1,0 +1,9 @@
+com/g33kzone/kinesis/DataProducer.class
+com/g33kzone/kinesis/utility/ReadCSV.class
+com/g33kzone/kinesis/controller/DataUploadController.class
+com/g33kzone/kinesis/model/Claims.class
+com/g33kzone/kinesis/DataProducer$1.class
+com/g33kzone/kinesis/repository/ClaimsRepository.class
+com/g33kzone/kinesis/SbKinesisProducerApplication.class
+com/g33kzone/kinesis/model/User.class
+com/g33kzone/kinesis/service/ClaimsService.class

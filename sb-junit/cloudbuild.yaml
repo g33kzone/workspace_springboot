@@ -1,0 +1,33 @@
+steps:
+- name: 'gcr.io/cloud-builders/mvn'
+  id: 'TEST'
+  args: ['test']
+- name: 'gcr.io/cloud-builders/mvn'
+  id: 'INSTALL'
+  args: ['install','-Dmaven.test.skip=true']
+# - name: 'gcr.io/cloud-builders/mvn'
+#   id: 'SONAR'
+#   args: 
+#   - 'sonar:sonar'
+#   - '-Dsonar.host.url=https://sonarcloud.io'
+#   - '-Dsonar.login=97c07f3883294c88b636f275971828f9d2fa2786'
+#   - '-Dsonar.projectKey=g33kzone_sb-junit'
+#   - '-Dsonar.organization=g33kzone'
+#   - '-Dsonar.sources=/workspace/src/main/java'
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'DOCKER'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA', '.']
+- name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+  id: 'SCANNER'
+  args:
+  - '-Dsonar.host.url=https://sonarcloud.io'
+  - '-Dsonar.login=3739aafe50ab54cefadc9df1d234dd9ba9af5dc2'
+  - '-Dsonar.projectKey=g33kzone_sb-junit'
+  - '-Dsonar.projectName=g33kzone_sb-junit'
+  - '-Dsonar.organization=g33kzone'
+  - '-Dsonar.sources=/workspace/src/main/java'
+  - '-Dsonar.java.binaries=//workspace/target'
+- name: 'ubuntu'
+  id: 'QUALITY GATE'
+  args: ['bash', './sonar-qg.sh', 'https://sonarcloud.io' ,'g33kzone_sb-junit']
+images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA']

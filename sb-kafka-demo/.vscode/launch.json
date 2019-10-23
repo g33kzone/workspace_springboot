@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SbKafkaDemoApplication<sb-kafka-demo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.g33kzone.kafka.SbKafkaDemoApplication",
+            "projectName": "sb-kafka-demo",
+            "args": ""
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+com/g33kzone/kinesis/SampleProducer.class
+com/g33kzone/kinesis/SampleProducer$2.class
+com/g33kzone/kinesis/SampleConsumer$1.class
+com/g33kzone/kinesis/MetricsAwareSampleProducer$2.class
+com/g33kzone/kinesis/MetricsAwareSampleProducer.class
+com/g33kzone/kinesis/SampleProducer$1.class
+com/g33kzone/kinesis/SampleConsumer.class
+com/g33kzone/kinesis/SampleProducer$4.class
+com/g33kzone/kinesis/SampleProducer$3.class
+com/g33kzone/kinesis/MetricsAwareSampleProducer$1.class
+com/g33kzone/kinesis/Utils.class
+com/g33kzone/kinesis/SbAwsKinesisApplication.class
+com/g33kzone/kinesis/SampleConsumer$RecordProcessor.class
